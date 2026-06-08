@@ -7,12 +7,12 @@ import Link from "next/link";
 import { create } from "zustand";
 import ProtectedRoute from "@/components/ProtectedRoute";
 
-// O mesmo estado global que usamos na tela de Categorias
+
 const useAppStore = create((set) => ({
-  // Pode mudar para:
+  
   usuarioLogado: "Usuário Teste",
 
-  // Ou deixar apenas vazio por enquanto:
+  
   usuarioLogado: "",
 }));
 
@@ -20,7 +20,7 @@ export default function ListaDemateria() {
   const [modalAberto, setModalAberto] = useState(false);
   const [editando, setEditando] = useState(null);
   const [novoNome, setNovoNome] = useState("");
-  // O período padrão que o seu colega configurou na API
+  
   const [novoPeriodo, setNovoPeriodo] = useState("1"); 
 
   const usuarioLogado = useAppStore((state) => state.usuarioLogado);
@@ -74,7 +74,7 @@ export default function ListaDemateria() {
         periodo: novoPeriodo,
       });
     } else {
-      // A função addmateria da API espera apenas o nome da matéria (descrição)
+     
       addMutation.mutate(novoNome);
     }
   };
@@ -86,10 +86,10 @@ export default function ListaDemateria() {
   };
 
   return (
-    // <ProtectedRoute>  <-- Lembre-se de descomentar antes de entregar!
+    
       <div className="min-h-screen bg-gray-100 flex">
         
-        {/* Sidebar idêntica à de Categorias */}
+        
         <aside className="w-64 bg-white border-r p-6 flex flex-col">
           <h1 className="text-2xl font-bold text-purple-700 mb-2">StudyFlow</h1>
           <p className="text-sm text-gray-500 mb-8 pb-4 border-b">
@@ -105,7 +105,7 @@ export default function ListaDemateria() {
           </nav>
         </aside>
 
-        {/* Conteúdo Principal */}
+        
         <main className="flex-1 p-8">
           <div className="flex justify-between items-center">
             <h1 className="text-3xl font-bold text-purple-700">Matérias</h1>
@@ -136,7 +136,7 @@ export default function ListaDemateria() {
                   className="bg-white p-4 rounded-lg shadow flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    {/* Um ícone de livro simples para dar um charme visual */}
+                    
                     <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-700">
                       📚
                     </div>
@@ -175,7 +175,7 @@ export default function ListaDemateria() {
             Total de matérias: {materias?.length || 0}
           </p>
 
-          {/* Modal Idêntico ao de Categorias */}
+          
           {modalAberto && (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
               <div className="bg-white p-6 rounded-lg w-96">
@@ -221,6 +221,5 @@ export default function ListaDemateria() {
           )}
         </main>
       </div>
-    // </ProtectedRoute>
   );
 }

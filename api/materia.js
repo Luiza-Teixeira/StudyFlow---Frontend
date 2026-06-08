@@ -44,7 +44,7 @@ export async function updatemateria(materia) {
     const response = await instance.put(
       `${materiaURL}/${materia.objectId}`,
       {
-        nome: materia.nome, // A correção foi feita bem aqui!
+        nome: materia.nome, 
         periodo: materia.periodo,
       },
       {
