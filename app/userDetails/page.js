@@ -5,7 +5,7 @@ import { useUserStorage } from "@/zustand";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
-export default function Perfil() {
+export default function userDetails() {
   // Busca o usuário logado no estado global (Zustand)
   const loggedUser = useUserStorage((state) => state.loggedUser);
 
